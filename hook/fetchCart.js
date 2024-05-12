@@ -13,7 +13,7 @@ const fetchCart = () => {
         setLoading(true)
 
         try {
-            const response = await axios.get(`http://localhost:8000/api/cart/find/${JSON.parse(id)}`);
+            const response = await axios.get(`http://10.0.2.2:8000/api/cart/find/${JSON.parse(id)}`);
             const newData = JSON.stringify(response.data)
             
 

@@ -13,7 +13,7 @@ const Headings = () => {
       <View style={styles.header}>
     <Text style={styles.headerTitle}>New Rivals</Text>
     <TouchableOpacity onPress={()=> navigation.navigate('New-Rivals')}>
-    <Ionicons name="" size={24} color={COLORS.primary} />
+    <Ionicons name="list" size={24} color={COLORS.primary} />
     </TouchableOpacity>
   </View>
     </View>

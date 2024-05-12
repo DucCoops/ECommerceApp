@@ -6,6 +6,7 @@ import {
   Text,
   Alert,
   TouchableOpacity,
+  ScrollView,
 } from "react-native";
 import AsyncStorage from "@react-native-async-storage/async-storage";
 import {
@@ -100,7 +101,7 @@ const Profile = ({ navigation }) => {
   };
 
   return (
-    <View style={styles.container}>
+    <ScrollView style={styles.container}>
       <View
         style={{
           flex: 1,
@@ -203,7 +204,7 @@ const Profile = ({ navigation }) => {
           
         </View>
       </View>
-    </View>
+    </ScrollView>
   );
 };
 

@@ -15,8 +15,6 @@ const orderRoute = require('./routes/orders')
 dotenv.config()
 mongoose.connect(process.env.MONGO_URL).then(() => console.log("db connected")).catch((err) => console.log(err));
 
-
-
 app.use(express.json({ limit: '10mb' }));
 app.use(express.urlencoded({ limit: '10mb', extended: true }));
 

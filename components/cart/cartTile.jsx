@@ -11,7 +11,7 @@ const CartTile = ({ item }) => {
   const navigation = useNavigation();
 
   deleteCart = async () => {
-    const endpoint = `http://localhost:8000/api/cart/${item._id}`;
+    const endpoint = `http://10.0.2.2:8000/api/cart/${item._id}`;
     
     try {
       await axios.delete(endpoint)

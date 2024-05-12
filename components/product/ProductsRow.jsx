@@ -40,7 +40,7 @@ export default ProductRow;
 
 const styles = StyleSheet.create({
   container: {
-    marginTop: SIZES.small,
+    marginTop: 5,
 
   },
   header: {

@@ -56,7 +56,7 @@ const LoginPage = ({ navigation }) => {
   const login = async () => {
     setLoader(true);
     try {
-      const endpoint = 'http://localhost:8000/api/login';
+      const endpoint = 'http://10.0.2.2:8000/api/login';
       const data = inputs
       console.log(data);
 
@@ -70,7 +70,7 @@ const LoginPage = ({ navigation }) => {
         await AsyncStorage.setItem('id', JSON.stringify(responseData._id))
         navigation.replace('Bottom Navigation');
       } catch (error) {
-        Alert.alert('Error', 'Oops, something went wrong. Try again');
+        
       }
 
 

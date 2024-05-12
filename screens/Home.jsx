@@ -60,7 +60,7 @@ const Home = () => {
 
   return (
     <SafeAreaView>
-        <View style={styles.appBarWrapper}>
+        <ScrollView style={styles.appBarWrapper}>
                 <View style={styles.appBar}>
                     
                 <Ionicons name="location-outline" size={28} color="black" />
@@ -75,7 +75,7 @@ const Home = () => {
                 </TouchableOpacity>
             </View>
                 </View>
-        </View>
+        </ScrollView>
         <ScrollView>
            <View style={{marginHorizontal: 10}}>
            <Welcome/>
