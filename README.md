@@ -25,18 +25,18 @@ Midterm topic of cross-platform mobile application development, using react navi
   npx expo start
 
 ### Features
-1. Sign up by email
-2. Login
-3. Logout
-4. Newly arrived products
-5. View all products
-6. View products's information
-7. Add/Delete products to favourite list
-8. View cart
-9. Clear cache
-10. Delete account
-11. View order (Incomplete)
-12. Search product by title
+1. Sign up by email: allows new users to create an account using their email address.
+2. Login: Authenticates users and maintains a session.
+3. Logout: logs the user out of their account, ending their current session.
+4. Newly arrived products: displays the latest products that have recently been added to the inventory.
+5. View all products: allows users to browse the entire catalog of available products.
+6. View products's information: provides detailed information about a specific product.
+7. Add/Delete products to favourite list: enables users to add products they like to their favorite list for easy access later.
+8. View cart: allows users to see the items they have added to their shopping cart.
+9. Clear cache: clears temporary data stored on the user's device related to the application.
+10. Delete account:  allows users to permanently delete their account from the system.
+11. View order (Incomplete): users view their current orders that have not been completed, complated or pending.
+12. Search product by title: enables users to search for products using specific keywords or phrases related to the product's title.
 
 ### Account
 You can use this admin acount to login: <br/>
