@@ -21,7 +21,7 @@ const Search = () => {
   const handleSearch = async () => {
     try {
       const response = await axios.get(
-        `http://10.0.2.2:8000/api/products/search/${searchKey}`
+        `http://10.0.2.2:4000/api/products/search/${searchKey}`
       );
       setSearchResults(response.data);
     } catch (error) {

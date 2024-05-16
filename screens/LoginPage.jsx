@@ -1,7 +1,8 @@
-import { StyleSheet, Text, View, Image, Alert, Keyboard, ScrollView } from 'react-native'
+import { StyleSheet, Text, View, Image, Alert, Keyboard, ScrollView, TouchableOpacity } from 'react-native'
 import { SafeAreaView } from 'react-native-safe-area-context';
 import { COLORS, SIZES } from '../constants';
 import Input from '../components/auth/input';
+import Icon from 'react-native-vector-icons/Ionicons';
 import Button from '../components/auth/Button';
 import BackButton from '../components/auth/BackButton';
 import React, { useEffect, useState } from 'react';
@@ -17,6 +18,7 @@ const LoginPage = ({ navigation }) => {
   });
 
   const [errors, setErrors] = React.useState({});
+  const [showPassword, setShowPassword] = React.useState(false);
 
   const handleError = (errorMessage, input) => {
     setErrors(prevState => ({ ...prevState, [input]: errorMessage }));
@@ -56,7 +58,7 @@ const LoginPage = ({ navigation }) => {
   const login = async () => {
     setLoader(true);
     try {
-      const endpoint = 'http://10.0.2.2:8000/api/login';
+      const endpoint = 'http://10.0.2.2:4000/api/login';
       const data = inputs
       console.log(data);
 
@@ -70,12 +72,11 @@ const LoginPage = ({ navigation }) => {
         await AsyncStorage.setItem('id', JSON.stringify(responseData._id))
         navigation.replace('Bottom Navigation');
       } catch (error) {
-        
       }
 
 
     } catch (error) {
-      Alert.alert('Error', error);
+      Alert.alert('User not found', error.errorMessage);
     };
 
 
@@ -83,6 +84,10 @@ const LoginPage = ({ navigation }) => {
 
   const handleChanges = (text, input) => {
     setInput(prevState => ({ ...prevState, [input]: text }));
+  };
+
+  const togglePasswordVisibility = () => {
+    setShowPassword(!showPassword);
   };
 
   return (
@@ -115,6 +120,7 @@ const LoginPage = ({ navigation }) => {
             icon='lock-outline'
             label={'Password'}
             error={errors.password}
+            secureTextEntry={!showPassword}
             onFocus={() => {
               handleError(null, 'password');
             }}

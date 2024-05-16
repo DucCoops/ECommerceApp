@@ -81,7 +81,7 @@ const Signup = ({ navigation }) => {
   const register = async () => {
     setLoader(true);
     try {
-      const endpoint = 'http://10.0.2.2:8000/api/register';
+      const endpoint = 'http://10.0.2.2:4000/api/register';
       const data = inputs
       console.log(data);
 
@@ -157,6 +157,7 @@ const Signup = ({ navigation }) => {
               icon='lock-outline'
               label={'Password'}
               error={errors.password}
+              secureTextEntry={true}
               onFocus={() => {
                 handleError(null, 'password');
               }}

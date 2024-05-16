@@ -7,6 +7,36 @@ import { COLORS, SIZES } from '../../constants';
 
 
 const CartList = () => {
+  const handlePress = () => {
+      createCheckoutSession();
+  };
+
+  const createCheckoutSession = async () => {
+    const id = await AsyncStorage.getItem('id');
+    console.log(id);
+
+    const response = await fetch('https://paymentserver-production-cb55.up.railway.app/stripe/create-checkout-session', {
+      method: 'POST',
+      headers: {
+        'Content-Type': 'application/json',
+      },
+      body: JSON.stringify({
+        userId: JSON.parse(id),
+        cartItems: [
+          // Add your cart items here
+          {
+            name: item.title,
+            id: item._id,
+            price: item.price,
+            cartQuantity: count,
+          },
+        ],
+      }),
+    });
+
+    const { url } = await response.json();
+    setPaymentUrl(url);
+  };
   const { data, isLoading, error } = fetchCart();
   const [selectedItem, setSelectedItem] = useState(null);
 
@@ -57,8 +87,8 @@ const CartList = () => {
   
         {/* Render checkout button */}
         <View style={styles.checkWrapper}>
-          <TouchableOpacity onPress={() => { }} style={styles.checkoutBtn}>
-            <Text style={styles.checkOutText}>CHECKOUT ${roundedTotalPrice}</Text>
+          <TouchableOpacity onPress={handlePress} style={styles.checkoutBtn}>
+            <Text style={styles.checkOutText} >CHECKOUT ${roundedTotalPrice}</Text>
           </TouchableOpacity>
         </View>
       </View>
@@ -122,6 +152,7 @@ const styles = StyleSheet.create({
     marginRight: 18,
   },
   checkoutBtn: {
+    marginTop: 20,
     width: '90%',
     height: '85%',
     backgroundColor: COLORS.primary,

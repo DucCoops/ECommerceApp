@@ -13,6 +13,7 @@ const Input = ({
     ...props }) => {
     const [obsecurePassWord, setObsecurePassWord] = React.useState(password);
     const [isFocused, setFocused] = React.useState(false);
+    const [showPassword, setShowPassword] = React.useState(false);
 
     return (
         <View style={styles.container}>
@@ -38,7 +39,6 @@ const Input = ({
                         setFocused(false);
                     }}
                     style={{ flex: 1 }} {...props} />
-                {label === "Password" && (<Ionicons onPress={() => setObsecurePassWord(!obsecurePassWord)} name={obsecurePassWord ? "eye-outline" : 'eye-off-outline'} size={24} color="black" />)}
             </View>
             {error && (
                 <Text style={styles.erroMsg}>{error}</Text>
